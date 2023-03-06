@@ -1,3 +1,4 @@
+
 package com.learn.webapp.security;
 
 import java.util.function.Function;
@@ -18,17 +19,23 @@ public class SpringSecurityConfiguration {
 	@Bean
 	public InMemoryUserDetailsManager createUserDetailsManager() {
 		
+		UserDetails userDetails1 = createNewUser("user", "pass");
+		UserDetails userDetails2 = createNewUser("user1", "pass1");
+		
+		return new InMemoryUserDetailsManager(userDetails1, userDetails2);
+	}
+
+	private UserDetails createNewUser(String username, String password) {
 		Function<String, String> passwordEncoder
 			= input -> passwordEncoder().encode(input);
-		
+			
 		UserDetails userDetails = User.builder()
 									.passwordEncoder(passwordEncoder)
-									.username("user")
-									.password("pass")
+									.username(username)
+									.password(password)
 									.roles("USER", "ADMIN")
 									.build();
-		
-		return new InMemoryUserDetailsManager(userDetails);
+		return userDetails;
 	}
 	
 	@Bean
