@@ -17,11 +17,11 @@ public class TodoService {
 	private static int todosCont = 0;
 	
 	static {
-		todos.add(new Todo(++todosCont, "user", "Learn AWS", 
+		todos.add(new Todo(++todosCont, "user", "Learn AWS 1", 
 				LocalDate.now().plusYears(1), false));
-		todos.add(new Todo(++todosCont, "user", "Learn DevOps", 
+		todos.add(new Todo(++todosCont, "user", "Learn DevOps 1", 
 				LocalDate.now().plusYears(2), false));
-		todos.add(new Todo(++todosCont, "user", "Learn Full Stack Development", 
+		todos.add(new Todo(++todosCont, "user", "Learn Full Stack Development 1", 
 				LocalDate.now().plusYears(3), false));
 	}
 	

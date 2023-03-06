@@ -16,6 +16,11 @@ import jakarta.validation.constraints.Size;
 // @Entity(name = "TodoName")
 @Entity
 public class Todo {
+	
+	public Todo() {
+		
+	}
+	
 	@Id
 	@GeneratedValue
 	private int id;
